@@ -1,0 +1,11 @@
+[
+  {
+    "id": 1,
+    "name": "Vicky个人作品集网站",
+    "tagline": "基于 AI 驱动的 iOS 风格响应式展示页，极简、高级、质感。",
+    "coverImage": "https://i.postimg.cc/wMn7vxRb/Xnip2025-12-26-12-59-57.png",
+    "promptText": "请为我生成一个可部署到Netlify的静态个人作品集网站。整体设计风格要高级、简单、iOS风格...",
+    "githubUrl": "https://github.com/Vicky730513/vicky-portfolio",
+    "geminiShareUrl": "https://ai.studio/apps/drive/1_jPBCZ4UMTaW-zOxygnz97jaD2KcZM8l"
+  }
+]
