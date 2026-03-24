@@ -2,7 +2,6 @@
   "name": "vicky-portfolio",
   "version": "0.1.0",
   "private": true,
-  "output": "export",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
