@@ -36,7 +36,7 @@ export default function Home() {
         <div className="relative z-10 max-w-3xl w-full p-12 bg-white/40 backdrop-blur-2xl rounded-[32px] border border-white/40 shadow-2xl animate-in slide-in-from-bottom-12 fade-in duration-1000">
           <h1 className="text-2xl md:text-4xl font-semibold leading-snug tracking-tight text-gray-900">
             Hi there，我是Vicky，你也可以叫我伟琪。<br />
-            很开心能和你分享我的作品集，希望可以受到你的喜欢。<br />
+            很开心能和你分享我的作品集，希望你喜欢。<br />
             Last but not least，希望你有美好的一天。
           </h1>
           <div className="mt-16 flex flex-col items-center animate-bounce opacity-30">
