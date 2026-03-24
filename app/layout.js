@@ -1,4 +1,5 @@
-export const metadata = {
+import './globals.css'
+  export const metadata = {
   title: 'Vicky Portfolio',
   description: 'Design portfolio by Vicky',
 }
