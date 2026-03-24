@@ -28,20 +28,43 @@ export default function Home() {
         </div>
       )}
 
-      {/* Hero Section 第一屏 */}
+      {/* Hero Section 第一屏 - 重新设计的排版 */}
       <section className="h-screen flex items-center justify-center px-6 relative overflow-hidden">
-        {/* 背景光斑动画 */}
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-white to-pink-50 opacity-60 animate-pulse" style={{ animationDuration: '10s' }} />
+        {/* 背景渐变光斑 */}
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-white to-pink-50 opacity-70 animate-pulse" style={{ animationDuration: '8s' }} />
         
-        <div className="relative z-10 max-w-3xl w-full p-12 bg-white/40 backdrop-blur-2xl rounded-[32px] border border-white/40 shadow-2xl animate-in slide-in-from-bottom-12 fade-in duration-1000">
-          <h1 className="text-2xl md:text-4xl font-semibold leading-snug tracking-tight text-gray-900">
-            Hi there，我是刘伟琪-Vicky。<br />
-            很幸运分享我的作品集，希望你喜欢。<br />
-            Last but not least，希望你有美好的一天。
-          </h1>
-          <div className="mt-16 flex flex-col items-center animate-bounce opacity-30">
-            <span className="text-[10px] uppercase tracking-[0.2em] mb-2">Scroll to explore</span>
-            <div className="w-[1px] h-12 bg-gray-400"></div>
+        <div className="relative z-10 max-w-4xl w-full p-8 md:p-16 bg-white/40 backdrop-blur-3xl rounded-[40px] border border-white/40 shadow-2xl animate-in slide-in-from-bottom-12 fade-in duration-1000">
+          
+          <div className="text-left space-y-8">
+            {/* 蓝色小标头 */}
+            <p className="text-blue-600 font-bold tracking-[0.3em] text-[10px] md:text-xs uppercase opacity-90">
+              Visual Designer Portfolio
+            </p>
+
+            {/* 主标题：粗细对比排版 */}
+            <h1 className="text-4xl md:text-7xl font-black text-gray-900 leading-[1.1] tracking-tighter">
+              Hi there, <br />
+              <span className="text-gray-300 font-light italic">我是</span> 刘伟琪-Vicky
+            </h1>
+
+            {/* 副标题：增加行间距与呼吸感 */}
+            <p className="text-lg md:text-2xl text-gray-400 font-light leading-relaxed max-w-2xl">
+              很幸运在这里分享我的作品集，<br />
+              <span className="text-gray-800 font-medium">希望其中蕴含的创意，能触动你的视觉。</span>
+            </p>
+
+            {/* 底部装饰线与祝福语 */}
+            <div className="pt-10 flex items-center gap-6">
+              <div className="w-16 h-[1px] bg-gray-200"></div>
+              <p className="text-xs md:text-sm text-gray-400 font-light tracking-[0.1em] italic">
+                Last but not least, 希望你有美好的一天。
+              </p>
+            </div>
+          </div>
+
+          {/* 向下滚动提示 */}
+          <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center opacity-20">
+            <div className="w-[1px] h-10 bg-gray-900 animate-bounce"></div>
           </div>
         </div>
       </section>
@@ -94,8 +117,8 @@ export default function Home() {
       </section>
 
       {/* 页脚 */}
-      <footer className="py-20 text-center text-gray-400 text-xs tracking-widest">
-        &copy; 2026 VICKY PORTFOLIO. MADE WITH AI.
+      <footer className="py-20 text-center text-gray-400 text-[10px] tracking-[0.3em]">
+        &copy; 2026 VICKY PORTFOLIO. DESIGNED WITH PASSION.
       </footer>
     </main>
   );
