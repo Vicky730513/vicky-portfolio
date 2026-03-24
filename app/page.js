@@ -1,19 +1,49 @@
 "use client";
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
+
+// 直接在这里定义你的四大类目数据，彻底解决路径 404 问题
+const projectsData = [
+  {
+    "id": 1,
+    "name": "品牌全案与视觉识别 (Brand Identity)",
+    "tagline": "【视觉语言】极简主义美学，构建品牌系统化核心识别。",
+    "coverImage": "https://i.postimg.cc/qvTBNRNn/wei-biao-ti-1-kan-tu-wang.png",
+    "promptText": "立足于品牌资产的系统化构建。通过深度解构行业属性，展现视觉语言在多维度媒介中的高度一致性与商业溢价力。",
+    "githubUrl": "https://github.com/Vicky730513/vicky-portfolio",
+    "geminiShareUrl": "https://ai.studio"
+  },
+  {
+    "id": 2,
+    "name": "多维包装工程设计 (Advanced Packaging)",
+    "tagline": "【感官美学】深耕 Eco-Luxury 材质逻辑，赋予产品第二生命力。",
+    "coverImage": "https://i.postimg.cc/FsnwYFT4/wei-biao-ti-1.png",
+    "promptText": "从特种纸礼盒到环保可持续包装。结合结构设计与材料感官，在 3D 渲染与实物落地间寻找商业溢价的平衡点。",
+    "githubUrl": "https://github.com/Vicky730513/vicky-portfolio",
+    "geminiShareUrl": "https://ai.studio"
+  },
+  {
+    "id": 3,
+    "name": "电商转化与视觉营销 (E-commerce Lab)",
+    "tagline": "【转化驱动】高转化率视觉构图与场景建模，精准驱动决策逻辑。",
+    "coverImage": "https://i.postimg.cc/MGBMjTxK/wei-biao-ti-1.png",
+    "promptText": "利用 3D 精准建模与超现实光影重构，缩短消费者的心理决策链路，构建极致的信任感与品牌视觉吸引力。",
+    "githubUrl": "https://github.com/Vicky730513/vicky-portfolio",
+    "geminiShareUrl": "https://ai.studio"
+  },
+  {
+    "id": 4,
+    "name": "概念创新与 AI 视觉实验 (AIGC Lab)",
+    "tagline": "【前沿探索】超现实主义风格，利用 AIGC 探索视觉叙事的边界。",
+    "coverImage": "https://i.postimg.cc/HLJMTzVs/wei-biao-ti-1.png",
+    "promptText": "探索设计与 AI 的交互边界，展示如何通过 Prompt 驱动高精度的商业级视觉资产生成，赋能未来品牌沟通。",
+    "githubUrl": "https://github.com/Vicky730513/vicky-portfolio",
+    "geminiShareUrl": "https://ai.studio"
+  }
+];
 
 export default function Home() {
-  const [projects, setProjects] = useState([]);
   const [toast, setToast] = useState("");
 
-  // 保留：获取本地数据逻辑
-  useEffect(() => {
-    fetch('/data/projects.json')
-      .then(res => res.json())
-      .then(data => setProjects(data))
-      .catch(err => console.error("加载数据失败", err));
-  }, []);
-
-  // 保留：剪贴板功能
   const copyToClipboard = (text) => {
     navigator.clipboard.writeText(text);
     setToast("已复制到剪贴板");
@@ -22,63 +52,46 @@ export default function Home() {
 
   return (
     <main className="min-h-screen bg-[#F5F5F7] text-[#1D1D1F] selection:bg-blue-100 font-sans">
-      {/* 保留：iOS 风格 Toast 提示 */}
+      {/* Toast 提示 */}
       {toast && (
-        <div className="fixed top-8 left-1/2 -translate-x-1/2 z-50 bg-white/80 backdrop-blur-md px-6 py-3 rounded-full shadow-lg border border-gray-200 animate-in fade-in zoom-in duration-300">
+        <div className="fixed top-8 left-1/2 -translate-x-1/2 z-50 bg-white/80 backdrop-blur-md px-6 py-3 rounded-full shadow-lg border border-gray-200">
           <span className="text-sm font-medium">{toast}</span>
         </div>
       )}
 
-      {/* 升级版 Hero Section - 融入你的银色金属感大片 */}
+      {/* Hero Section */}
       <section className="h-screen flex items-center justify-center relative overflow-hidden">
-        {/* 背景层：使用你的金属大片 */}
+        {/* 这里请务必再次检查你的背景图链接是否有效 */}
         <div 
           className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat transition-transform duration-[10s] hover:scale-110"
           style={{ 
-            backgroundImage: `url('https://i.postimg.cc/SRWYnwxr/44.png')`, // 请填入你上传后的链接
+            backgroundImage: "url('https://i.postimg.cc/SRWYnwxr/44.png')" 
           }}
         />
         
-        {/* 蒙版层：增加一点磨砂感，确保文字清晰 */}
         <div className="absolute inset-0 z-10 bg-white/10 backdrop-blur-[2px]" />
         
-        {/* 内容层：保留你原有的排版逻辑，但改为悬浮感 */}
-        <div className="relative z-20 max-w-4xl w-full mx-6 p-8 md:p-16 bg-white/20 backdrop-blur-2xl rounded-[40px] border border-white/30 shadow-2xl animate-in slide-in-from-bottom-12 fade-in duration-1000">
-          
+        <div className="relative z-20 max-w-4xl w-full mx-6 p-8 md:p-16 bg-white/20 backdrop-blur-2xl rounded-[40px] border border-white/30 shadow-2xl">
           <div className="text-left space-y-8">
             <p className="text-blue-600 font-bold tracking-[0.3em] text-[10px] md:text-xs uppercase opacity-90">
               Visual Designer Portfolio
             </p>
-
             <h1 className="text-4xl md:text-7xl font-black text-gray-900 leading-[1.1] tracking-tighter">
               Hi there, <br />
               <span className="text-gray-300 font-light italic">我是</span> 刘伟琪-Vicky
             </h1>
-
-            <p className="text-lg md:text-2xl text-gray-800/80 font-light leading-relaxed max-w-2xl">
+            <p className="text-lg md:text-2xl text-gray-800 font-light leading-relaxed max-w-2xl">
               很幸运在这里分享我的作品集，<br />
               <span className="text-gray-900 font-medium">希望其中蕴含的创意，能触动你的视觉。</span>
             </p>
-
-            <div className="pt-10 flex items-center gap-6">
-              <div className="w-16 h-[1px] bg-gray-900/20"></div>
-              <p className="text-xs md:text-sm text-gray-500 font-light tracking-[0.1em] italic">
-                Last but not least, 希望你有美好的一天。
-              </p>
-            </div>
-          </div>
-
-          {/* 向下滚动提示 */}
-          <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center opacity-30">
-            <div className="w-[1px] h-10 bg-gray-900 animate-bounce"></div>
           </div>
         </div>
       </section>
 
-      {/* Projects Section 项目展示区 - 保持原样 */}
+      {/* Projects Section */}
       <section className="max-w-7xl mx-auto px-6 py-24">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-          {projects.map((project) => (
+          {projectsData.map((project) => (
             <div key={project.id} className="group bg-white rounded-[28px] overflow-hidden shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 border border-gray-100">
               <div className="aspect-[16/10] relative overflow-hidden bg-gray-100">
                 <img 
@@ -93,23 +106,13 @@ export default function Home() {
                 <div className="flex flex-col gap-3">
                   <button 
                     onClick={() => copyToClipboard(project.promptText)}
-                    className="w-full py-3.5 bg-[#0071E3] text-white rounded-full text-sm font-medium hover:bg-[#0077ED] active:scale-[0.98] transition-all"
+                    className="w-full py-3.5 bg-[#0071E3] text-white rounded-full text-sm font-medium hover:bg-[#0077ED] transition-all"
                   >
-                    复制 Prompt
+                    复制设计理念
                   </button>
                   <div className="grid grid-cols-2 gap-3">
-                    <button 
-                      onClick={() => window.open(project.githubUrl, '_blank')}
-                      className="py-3 bg-gray-50 rounded-full text-sm font-medium hover:bg-gray-100 active:scale-[0.98] transition-all text-center"
-                    >
-                      Github
-                    </button>
-                    <button 
-                      onClick={() => window.open(project.geminiShareUrl, '_blank')}
-                      className="py-3 bg-gray-50 rounded-full text-sm font-medium hover:bg-gray-100 active:scale-[0.98] transition-all text-center"
-                    >
-                      Gemini 项目
-                    </button>
+                    <button onClick={() => window.open(project.githubUrl, '_blank')} className="py-3 bg-gray-50 rounded-full text-sm font-medium hover:bg-gray-100 transition-all text-center">Github</button>
+                    <button onClick={() => window.open(project.geminiShareUrl, '_blank')} className="py-3 bg-gray-50 rounded-full text-sm font-medium hover:bg-gray-100 transition-all text-center">Gemini</button>
                   </div>
                 </div>
               </div>
